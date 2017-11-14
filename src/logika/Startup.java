@@ -22,4 +22,37 @@ public class Startup {
         this.polohaX = polohaX;
         this.polohaY = polohaY;
     }  
+
+    public String getPopis() {
+        return popis;
+    }
+
+    public void setPopis(String popis) {
+        this.popis = popis;
+    }
+
+    public String getKontakt() {
+        return kontakt;
+    }
+
+    public void setKontakt(String kontakt) {
+        this.kontakt = kontakt;
+    }
+
+    public int getPolohaX() {
+        return polohaX;
+    }
+
+    public void setPolohaX(int polohaX) {
+        this.polohaX = polohaX;
+    }
+
+    public int getPolohaY() {
+        return polohaY;
+    }
+
+    public void setPolohaY(int polohaY) {
+        this.polohaY = polohaY;
+    }
+    
 }

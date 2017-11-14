@@ -28,7 +28,6 @@ public class MenuLista extends MenuBar{
     /**
     *  Konstruktor třídy
     *  
-    *  @param hra 
     *  @param main
     */ 
     public MenuLista(Main main){
