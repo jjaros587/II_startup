@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="800" prefWidth="1200" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.FXMLDocumentController">
+    <children>
+        
+        <AnchorPane fx:id="MainFrame" layoutX="0" layoutY="0" prefHeight="750" prefWidth="1200" >
+            <children>
+                <Button layoutX="500" layoutY="200" prefHeight="40.0" prefWidth="200" text="Přihlásit se" onAction="#Prihlasit" />
+                <Button layoutX="500" layoutY="300" prefHeight="40.0" prefWidth="200" text="Registrovat se" onAction="#Registrovat" />
+            </children>
+        </AnchorPane>       
+
+        <Button fx:id="ButtonMenu" layoutX="500" layoutY="750" onAction="#Menu" prefHeight="40.0" prefWidth="200" text="Menu" visible="false"/>
+        <Button fx:id="ButtonSeznamStartupu" layoutX="500" layoutY="750" onAction="#SeznamStartupu" prefHeight="40.0" prefWidth="200" text="Seznam startupů" visible="false"/>
+        <Button fx:id="buttonZpetNaDetail" layoutX="500" layoutY="750" prefHeight="40.0" prefWidth="200" text="Zpět na detail" visible="false"/>
+    
+        <FlowPane fx:id="UserBox"  layoutX="15" layoutY="765" visible="false">
+            <Label fx:id="usernameLabel" />
+            <Button onAction="#actionOdhlasit" prefHeight="20" prefWidth="100" text="Odhlásit"/>
+        </FlowPane>
+             
+        <AnchorPane fx:id="Menu" layoutX="0" layoutY="0" prefHeight="750" prefWidth="1200"  visible="false">
+            <children>
+                <Button layoutX="500" layoutY="200" prefHeight="40.0" prefWidth="200" text="Seznam startupů" onAction="#SeznamStartupu" fx:id="buttonSeznamStartupu" />
+                <Button layoutX="500" layoutY="300" prefHeight="40.0" prefWidth="200" text="Zobrazit uživatele" onAction="#Uzivatele" fx:id="buttonUzivatele" />
+            </children>
+        </AnchorPane>
+        
+        <AnchorPane fx:id="Uzivatele" prefHeight="750" prefWidth="1200" visible="false">
+            <children>
+                <Label layoutX="500" layoutY="25" text="Správa uživatelů">
+                    <font>
+                        <Font size="20.0" />
+                    </font>
+                </Label>
+                <AnchorPane fx:id="uzivateleTable"/>
+            </children>
+            
+        </AnchorPane>
+        
+        <AnchorPane fx:id="SeznamStartupu" prefHeight="750" prefWidth="1200" visible="false">
+            <children>
+                <Label layoutX="500" layoutY="25" text="Seznam startupů">
+                    <font>
+                        <Font size="20.0" />
+                    </font>
+                </Label>
+                <ListView fx:id="viewStartupy" layoutX="50" layoutY="100" prefHeight="600" prefWidth="400" />
+                <Label layoutX="600" layoutY="150" text="Vyhledat startup:"/>
+                <TextField fx:id="vyhledatField" layoutX="600" layoutY="180" prefWidth="300"/>
+                <Button fx:id="buttonVyhledatStartup" layoutX="600" layoutY="210" mnemonicParsing="false" onAction="#actionVyhledatStartup" prefHeight="40" prefWidth="150" text="Vyhledat startup" />
+                <Button fx:id="buttonPridatStartupForm" layoutX="800" layoutY="400" mnemonicParsing="false" onAction="#PridatStartupForm" prefHeight="40" prefWidth="150" text="Přidat startup" />     
+            </children>
+        </AnchorPane>
+        
+            <AnchorPane fx:id="PridatStartupForm" prefHeight="750" prefWidth="1200" visible="false">
+                <children>
+                    <Label layoutX="500" layoutY="25" text="Přidat startup">
+                        <font>
+                            <Font size="20.0" />
+                        </font>
+                    </Label>
+
+                    <Label layoutX="50" layoutY="100">Název</Label>
+                    <TextField fx:id="nazevAdd"  layoutX="125" layoutY="100" prefWidth="300"/>
+
+                    <Label layoutX="50" layoutY="150">Email</Label>
+                    <TextField fx:id="emailAdd" layoutX="125" layoutY="150"  prefWidth="300"/>
+
+                    <Label layoutX="50" layoutY="200">Poloha X</Label>
+                    <TextField fx:id="polohaXAdd" layoutX="125" layoutY="200" prefWidth="100" disable="true"/>
+
+                    <Label layoutX="250" layoutY="200">Poloha Y</Label>
+                    <TextField fx:id="polohaYAdd" layoutX="325" layoutY="200" prefWidth="100" disable="true"/>
+                    
+                    <Label layoutX="50" layoutY="250">Popis</Label>
+                    <TextArea fx:id="popisAdd" layoutX="50" layoutY="275"/>
+                    
+                    <AnchorPane fx:id="mapaAdd" layoutX="550" layoutY="100" >
+                        <ImageView fx:id="imageViewMapAdd"  fitHeight="500" fitWidth="650" onMouseClicked="#getPositionFromMapAdd">
+                            <Image url="/zdroje/mapa.png" />
+                        </ImageView>
+                    </AnchorPane>
+                    
+                    <Button layoutX="395" layoutY="700" mnemonicParsing="false" onAction="#actionPridatStartup" prefHeight="40" prefWidth="200" text="Přidat startup" />
+                    <Button layoutX="605" layoutY="700" mnemonicParsing="false" onAction="#SeznamStartupu" prefHeight="40" prefWidth="200" text="Zrušit" />
+                </children>
+            </AnchorPane> 
+
+            <AnchorPane fx:id="DetailStartupu" prefHeight="750" prefWidth="1200" visible="false">
+                <children>
+                   <Label fx:id="detailMainLabel" layoutX="500" layoutY="25">
+                      <font>
+                         <Font size="20.0" />
+                      </font>
+                   </Label> 
+                   <Label layoutX="50" layoutY="100">Název</Label>
+                    <TextField fx:id="nazevDetail"  layoutX="125" layoutY="100" prefWidth="300"/>
+
+                    <Label layoutX="50" layoutY="150">Email</Label>
+                    <TextField fx:id="emailDetail" layoutX="125" layoutY="150"  prefWidth="300"/>
+
+                    <Label layoutX="50" layoutY="200">Poloha X</Label>
+                    <TextField fx:id="polohaXDetail" layoutX="125" layoutY="200" prefWidth="100" disable="true"/>
+
+                    <Label layoutX="250" layoutY="200">Poloha Y</Label>
+                    <TextField fx:id="polohaYDetail" layoutX="325" layoutY="200" prefWidth="100" disable="true"/>
+                    
+                    <Label layoutX="50" layoutY="250">Popis</Label>
+                    <TextArea fx:id="popisDetail" layoutX="50" layoutY="275"/>
+                    
+                    <AnchorPane fx:id="mapaDetail" layoutX="550" layoutY="100" >
+                        <ImageView fx:id="imageViewMapDetail"  fitHeight="500" fitWidth="650" onMouseClicked="#getPositionFromMapDetail">
+                            <Image url="/zdroje/mapa.png" />
+                        </ImageView>
+                    </AnchorPane> 
+                    
+                    <AnchorPane layoutX="50" layoutY="500" fx:id="hodnoceni"/>
+ 
+                    <Button fx:id="buttonEditovatStartup" layoutX="395" layoutY="700" mnemonicParsing="false" onAction="#actionEditovatStartup" prefHeight="40" prefWidth="200" text="Editovat" />
+                    <Button fx:id="buttonSmazatStartup" layoutX="605" layoutY="700" mnemonicParsing="false" onAction="#actionSmazatStartup" prefHeight="40" prefWidth="200" text="Smazat" />
+                    <Button layoutX="775" layoutY="625" mnemonicParsing="false" onAction="#Komentare" prefHeight="40" prefWidth="200" text="Zobrazit komentáře" />
+                </children>
+             </AnchorPane>
+             
+                <AnchorPane fx:id="Komentare" prefHeight="750" prefWidth="1200" visible="false">
+                    <children>
+                        <Label fx:id="LabelKomentare" layoutX="500" layoutY="25">
+                            <font>
+                                <Font size="20.0" />
+                            </font>
+                        </Label>
+                        <AnchorPane fx:id="komentareTable"/>
+                        <Label layoutX="750" layoutY="210">Přidat komentář</Label>
+                        <TextArea fx:id="komentar" layoutX="750" layoutY="235"  prefWidth="400" prefHeight="200"/>
+
+                        <Button layoutX="750" layoutY="450" mnemonicParsing="false" onAction="#actionPridatKomentar" prefHeight="30" prefWidth="200" text="Přidat komentář" />
+                    </children>
+                </AnchorPane>
+      
+        <AnchorPane fx:id="Prihlasit" prefHeight="750" prefWidth="1200" visible="false">
+            <children>
+                <Label layoutX="500" layoutY="25" text="Přihlášení">
+                    <font>
+                        <Font size="20.0" />
+                    </font>
+                </Label>  
+                <Label layoutX="450" layoutY="150">Uživatelské jméno</Label>
+                <TextField fx:id="username"  layoutX="450" layoutY="175" prefWidth="300"/>
+
+                <Label layoutX="450" layoutY="210">Heslo</Label>
+                <PasswordField fx:id="password" layoutX="450" layoutY="235"  prefWidth="300"/>
+            
+                <Button layoutX="500" layoutY="270" mnemonicParsing="false" onAction="#actionPrihlasit" prefHeight="30" prefWidth="200" text="Přihlásit" />   
+                <Button layoutX="500" layoutY="750" onAction="#MainFrame" prefHeight="40.0" prefWidth="200" text="Zpět"/>
+            </children>
+        </AnchorPane>
+      
+       <AnchorPane fx:id="Registrovat" prefHeight="750" prefWidth="1200" visible="false">
+            <children>
+                <Label layoutX="500" layoutY="25" text="Registrace">
+                    <font>
+                        <Font size="20.0" />
+                    </font>
+                </Label>
+                <Label layoutX="450" layoutY="150">Uživatelské jméno</Label>
+                <TextField fx:id="usernameReg"  layoutX="450" layoutY="175" prefWidth="300"/>
+
+                <Label layoutX="450" layoutY="210">Heslo</Label>
+                <PasswordField fx:id="password1" layoutX="450" layoutY="235"  prefWidth="300"/>
+
+                <Label layoutX="450" layoutY="270">Heslo pro kontrolu</Label>
+                <PasswordField fx:id="password2" layoutX="450" layoutY="295"  prefWidth="300"/>
+            
+                <Button layoutX="500" layoutY="330" mnemonicParsing="false" onAction="#actionRegistrovat" prefHeight="30" prefWidth="200" text="Registrovat" />   
+                <Button layoutX="500" layoutY="750" onAction="#MainFrame" prefHeight="40.0" prefWidth="200" text="Zpět"/>  
+            </children>
+        </AnchorPane>   
+        
+    </children>
+</AnchorPane>

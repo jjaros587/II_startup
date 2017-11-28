@@ -12,47 +12,47 @@ package logika;
 public class Startup {
     
     private String popis;
+    private String nazev;
     private String kontakt;
-    private int polohaX;
-    private int polohaY;
+    private double polohaX;
+    private double polohaY;
+    private int id;
     
-    public Startup(String popis, String kontakt, int polohaX, int polohaY){
+    public Startup(int id, String nazev, String popis, String kontakt, double polohaX, double polohaY){
+        this.id      = id;
+        this.nazev   = nazev;
         this.popis   = popis;
         this.kontakt = kontakt;
         this.polohaX = polohaX;
         this.polohaY = polohaY;
     }  
+    
+    public Startup(int id, String nazev){
+        this.id      = id;
+        this.nazev   = nazev;
+    }   
 
     public String getPopis() {
         return popis;
     }
-
-    public void setPopis(String popis) {
-        this.popis = popis;
+    
+    public int getId() {
+        return id;
+    }
+    
+    public String getNazev() {
+        return nazev;
     }
 
     public String getKontakt() {
         return kontakt;
     }
 
-    public void setKontakt(String kontakt) {
-        this.kontakt = kontakt;
-    }
-
-    public int getPolohaX() {
+    public double getPolohaX() {
         return polohaX;
     }
 
-    public void setPolohaX(int polohaX) {
-        this.polohaX = polohaX;
-    }
-
-    public int getPolohaY() {
+    public double getPolohaY() {
         return polohaY;
-    }
-
-    public void setPolohaY(int polohaY) {
-        this.polohaY = polohaY;
-    }
-    
+    }  
 }
