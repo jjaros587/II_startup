@@ -146,6 +146,7 @@ public class Database implements Subject {
             query = "UPDATE users SET smazano='1' WHERE id_user='"+ id +"'";
             stm.executeUpdate(query);
             notifyObservers();
+            success("Uživatel byl úspěšně smazán");
             
         } 
           catch(Exception ex){
@@ -285,7 +286,7 @@ public class Database implements Subject {
             query = "UPDATE comments SET smazano='1' WHERE id_comment='"+ id +"'";
             stm.executeUpdate(query);
             notifyObservers();
-            success("Startup byl úspěšně smazán");
+            success("Komentář byl úspěšně smazán");
         } 
           catch(Exception ex){
             error(ex.getMessage());

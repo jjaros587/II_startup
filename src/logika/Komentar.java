@@ -28,4 +28,17 @@ public class Komentar {
     public int getId() {
         return id;
     }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public String getText() {
+        return text;
+    }
+    
 }
