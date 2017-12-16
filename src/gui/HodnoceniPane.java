@@ -13,6 +13,11 @@ import logika.User;
 import utils.Database;
 import utils.Observer;
 
+/**
+ *
+ * @author Tým 5
+ */
+
 public class HodnoceniPane extends BorderPane implements Observer{
 
     private Database database;

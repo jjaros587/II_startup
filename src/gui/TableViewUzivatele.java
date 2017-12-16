@@ -12,10 +12,14 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.util.Callback;
-import logika.Komentar;
 import logika.User;
 import utils.Database;
 import utils.Observer;
+
+/**
+ *
+ * @author Tým 5
+ */
 
 public class TableViewUzivatele extends TableView<User> implements Observer{
 

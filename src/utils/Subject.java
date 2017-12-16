@@ -7,7 +7,7 @@ package utils;
 
 /**
  *
- * @author Jakub Jaroš
+ * @author Tým 5
  */
 public interface Subject {
     

@@ -7,7 +7,7 @@ package logika;
 
 /**
  *
- * @author Jakub Jaroš
+ * @author Tým 5
  */
 public class Startup {
     

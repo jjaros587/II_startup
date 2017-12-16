@@ -14,7 +14,7 @@ import javafx.stage.Stage;
 
 /**
  *
- * @author Acer
+ * @author Tým 5
  */
 public class Start extends Application {
     

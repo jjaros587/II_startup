@@ -9,7 +9,7 @@ import java.sql.Date;
 
 /**
  *
- * @author Acer
+ * @author Tým 5
  */
 public class Komentar {
        

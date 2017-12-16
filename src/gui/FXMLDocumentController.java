@@ -32,14 +32,12 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.PasswordField;
 import javafx.scene.layout.FlowPane;
-import javafx.scene.text.Font;
-import javafx.scene.text.FontWeight;
 import logika.Startup;
 import logika.User;
 
 /**
  *
- * @author Acer
+ * @author Tým 5
  */
 public class FXMLDocumentController implements Initializable {
     
@@ -344,7 +342,9 @@ public class FXMLDocumentController implements Initializable {
             error("Hesla se neshodují");
         } else{
             if(database.registrovat(usernameReg.getText().trim(), password1.getText().trim())){
-                user = database.prihlasit(usernameReg.getText().trim(), password1.getText().trim());              
+                user = database.prihlasit(usernameReg.getText().trim(), password1.getText().trim()); 
+                SeznamStartupu();
+                success("Byl jsi úspěšně zaregistrován!");
             } else{
                 error("Registrace se nezdařila");
             }
